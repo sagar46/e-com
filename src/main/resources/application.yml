@@ -1,5 +1,26 @@
-spring.h2.console.enabled=true
-spring.datasource.url=jdbc:h2:mem:test
-#spring.jpa.show-sql=false
-#spring.jpa.properties.hibernate.format_sql=true
-#spring.jpa.hibernate.ddl-auto=update
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/e-com
+    username: root
+    password:
+  jpa:
+    database: mysql
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  ecom:
+    app:
+      jwt-secret: abcdefghijklmnopqrstuvwxyzabsbchdchdcvdgshcvgdshvcdsvdbcvjhbv
+      jwt-expiration: 3600000
+      jwt-cookieName : ecom-cookie
+logging:
+  level:
+    com.ecommerce: debug
+project:
+  image: images/
